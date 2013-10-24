@@ -7,6 +7,9 @@ public class PickerClientSample {
 
 	private static final int PORT = 9999;
 
+	/** server socket timeout(ms) */
+    public static final int    TIMEOUT_SERVER_SOCKET     = 500;
+    
 	public static void main(String[] args) {
 		// ソケットや入出力用のストリームの宣言
 		Socket echoSocket = null;
@@ -16,6 +19,7 @@ public class PickerClientSample {
 		// Socketの準備
 		try {
 			echoSocket = new Socket("localhost", PORT);
+			echoSocket.setSoTimeout(TIMEOUT_SERVER_SOCKET);		
 			os = new DataOutputStream( echoSocket.getOutputStream());
 			is = new BufferedReader( new InputStreamReader(echoSocket.getInputStream()));
 		} catch ( UnknownHostException e) {
