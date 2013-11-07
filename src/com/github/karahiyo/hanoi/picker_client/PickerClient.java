@@ -39,9 +39,9 @@ public class PickerClient {
 			os = new DataOutputStream( echoSocket.getOutputStream());
 			is = new BufferedReader( new InputStreamReader(echoSocket.getInputStream()));
 		} catch ( UnknownHostException e) {
-			System.err.println("Don't know about host: localhost");
+			System.err.println("Don't know about host: " + this.HOST + ":" + this.PORT);
 		} catch ( IOException e) {
-			System.err.println("Could't get I/O for the connection to: localhost");
+			System.err.println("Could't get I/O for the connection to: " + this.HOST + ":" + this.PORT);
 		}
 
 		// テストメッセージの送信
