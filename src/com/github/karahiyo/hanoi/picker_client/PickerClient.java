@@ -40,7 +40,7 @@ public class PickerClient {
 
 	public boolean send(String msg) throws Exception{
 		// メッセージの送信
-		byte[] buf  = msg.getBytes();
+		byte[] buf  = msg.getBytes("UTF-8");
 		DatagramPacket packet = new DatagramPacket(buf, buf.length, inetAddress, this.PORT);
 		sendSocket.send(packet);
 		return true;
